@@ -5,7 +5,7 @@
 ---
 
 ### Github
-- Octotree
+- Octotree [一个鼓吹的文章](https://www.geeksense.cn/plugin/)
 
 ### PHP
 - phpStorm
@@ -17,4 +17,3 @@
 - navicate
   - 版本号：
   - 激活码：下次装的时候记上
-  
