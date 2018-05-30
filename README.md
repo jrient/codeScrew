@@ -5,7 +5,8 @@
 ---
 
 ### Github
-- Octotree [一个鼓吹的文章](https://www.geeksense.cn/plugin/)
+- Octotree 很好用的github代码阅读插件 [(一个鼓吹的文章)](https://www.geeksense.cn/plugin/)
+- tampermonkey [油猴脚本](http://tampermonkey.net/)
 
 ### PHP
 - phpStorm
