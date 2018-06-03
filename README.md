@@ -4,9 +4,13 @@
 
 ---
 
-### Github
+### 浏览器插件
 - Octotree 很好用的github代码阅读插件 [(一个鼓吹的文章)](https://www.geeksense.cn/plugin/)
 - tampermonkey [油猴脚本](http://tampermonkey.net/)
+- 掘金
+- SwitchyOmega
+- set Character Encoding
+- 极简Json格式化
 
 ### PHP
 - phpStorm
