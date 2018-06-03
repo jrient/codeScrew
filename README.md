@@ -14,7 +14,10 @@
 ### 远程连接
 - xShell\xFtp
 
-### mysql
+### MySQL
 - navicate
   - 版本号：
   - 激活码：下次装的时候记上
+
+### Web在线工具
+- [一个好用的图片尺寸放大工具](http://waifu2x.udp.jp/)
