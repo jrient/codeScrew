@@ -19,9 +19,7 @@
 - xShell\xFtp
 
 ### MySQL
-- navicate
-  - 版本号：
-  - 激活码：下次装的时候记上
+- navicate Premium 12.0.29 [激活方式](https://www.jianshu.com/p/5f693b4c9468)
 
 ### Web在线工具
 - [一个好用的图片尺寸放大工具](http://waifu2x.udp.jp/)
