@@ -10,7 +10,7 @@
 - 掘金
 - SwitchyOmega
 - set Character Encoding
-- 极简Json格式化
+- JSON Formatter / 极简Json格式化
 
 ### PHP
 - phpStorm
