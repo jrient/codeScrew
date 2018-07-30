@@ -11,6 +11,7 @@
 - SwitchyOmega
 - set Character Encoding
 - JSON Formatter / 极简Json格式化
+- vimium 一个超级舒服的浏览器插件，和鼠标say byebye
 
 ### PHP
 - phpStorm
