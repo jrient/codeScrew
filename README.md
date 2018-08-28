@@ -17,7 +17,7 @@
 - phpStorm
 
 ### 远程连接
-- xShell\xFtp
+- [xShell\xFtp](https://www.netsarang.com/download/software.html)
 
 ### MySQL
 - navicate Premium 12.0.29 [激活方式](https://www.jianshu.com/p/5f693b4c9468)
