@@ -26,5 +26,5 @@
 - [一个好用的图片尺寸放大工具](http://waifu2x.udp.jp/)
 
 ### 其他
-[switchHosts](https://github.com/oldj/SwitchHosts/releases)
-[持续集成服务 Travis CI](https://travis-ci.org/) [说明](http://www.ruanyifeng.com/blog/2017/12/travis_ci_tutorial.html)
+- [switchHosts](https://github.com/oldj/SwitchHosts/releases)
+- [持续集成服务 Travis CI](https://travis-ci.org/) [说明](http://www.ruanyifeng.com/blog/2017/12/travis_ci_tutorial.html)
