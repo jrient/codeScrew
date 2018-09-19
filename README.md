@@ -27,3 +27,4 @@
 
 ### 其他
 [switchHosts](https://github.com/oldj/SwitchHosts/releases)
+[持续集成服务 Travis CI](https://travis-ci.org/) [说明](http://www.ruanyifeng.com/blog/2017/12/travis_ci_tutorial.html)
