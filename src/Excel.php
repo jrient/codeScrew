@@ -18,7 +18,7 @@ class Excel
 
         $fp = fopen('php://output', 'a');
         foreach ($data as $i => $item) {
-            fputcsv($fp, $data);
+            fputcsv($fp, $item);
             if ($i % 1000 === 0) {
                 ob_flush();
                 flush();
