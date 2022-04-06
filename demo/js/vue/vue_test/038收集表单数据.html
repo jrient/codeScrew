@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>收集表单数据</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h2>hello</h2>
+        <form @submit.prevent="stopSubmit">
+            <label for="username">账号</label>
+            <input type="text" id="username" name="username" v-model.trim="username">
+            <br>
+            <label for="password">密码</label>
+            <input type="text" id="password" name="password" v-model="password">
+            <br>
+            <label for="age">年龄</label>
+            <input type="number" id="age" name="age" v-model.number="age">
+            <br>
+            <label for="sex">性别</label>
+            <input type="radio" id="sex" name="sex" value="1"  v-model="sex">
+            <input type="radio" name="sex" value="2" v-model="sex">
+            <br>
+            <label >爱好</label>
+            <label><input type="checkbox" name="hobby" value="1" v-model="hobby">学习</label>
+            <label><input type="checkbox" name="hobby" value="2" v-model="hobby">看书</label>
+            <label><input type="checkbox" name="hobby" value="3" v-model="hobby">吃饭</label>
+            <br>
+            <label>所属校区</label>
+            <select name="school" v-model="school">
+                <option value="1">1111111</option>
+                <option value="2">2222222</option>
+                <option value="3">3333333</option>
+                <option value="4">4444444</option>
+                <option value="5">5555555</option>
+                <option value="6">6666666</option>
+            </select>
+            <br>
+            <label>其他信息</label>
+            <!-- lazy只有失去焦点的时候收集数据 -->
+            <textarea v-model.lazy="other"></textarea>
+            <br>
+            <br>
+            <input type="checkbox" name="rule"><a href="www.baidu.com">《用户协议》</a>
+            
+            <br>
+            <button>提交</button>
+        </form>
+    </div>
+
+    <script>
+        Vue.config.productionTip = false;
+
+        var vm = new Vue({
+            el:'#root',  
+            data:{
+                username:'jrient1',
+                password:'',
+                sex:'1',
+                age:0,
+                hobby:[],
+                school:'2',
+                other:"",
+                rule:false,
+            },
+            methods:{
+                stopSubmit(){
+                    console.log(JSON.stringify(this._data))
+                }
+            }
+        })
+    </script>
+</body>
+</html>

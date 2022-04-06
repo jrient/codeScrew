@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <style>
+        * {
+            margin-top: 20px;
+        }
+        .demo1 {
+            background-color: aqua;
+        }
+        .box {
+            padding: 10px;
+            border: solid 1px yellow;
+        }
+        .list {
+            height: 200px;
+            width: 100px;
+            background-color: yellowgreen;
+            overflow: auto;
+        }
+        .list li{
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <h2>{{content}}</h2>
+        <!-- Vue中的事件修饰符:
+        1.prevent： 阻止默认事件
+        2.stop:     阻止事件冒泡
+        3.once:     事件只触发一次
+        4.capture:  使用事件的捕获模式
+        5.self:     只有event.target是当前操作的元素才触发事件
+        6.passive:  事件的默认行为立即执行，无需等待事件回调执行完毕 -->
+
+        <!-- 1.prevent： 阻止默认事件 -->
+        <a href="//www.baidu.com" @click.prevent="showInfo">阻止默认事件</a>
+
+        <!-- 2.stop:     阻止事件冒泡 -->
+        <div class="demo1" @click="showInfo">
+            <!-- stop修饰在冒泡事件上生效 -->
+            <button @click.stop="showInfo">阻止事件冒泡</button>
+        </div>
+
+        <!-- 3.once:     事件只触发一次 -->
+        <button @click.once="showInfo">事件只触发一次</button>
+
+        <!-- 4.capture:  使用事件的捕获模式 -->
+        <!-- 原本事件处理阶段是先捕阶段获后处理阶段，所以事件冒泡出现2，1 -->
+        <!-- capture将处理提前到捕获阶段，捕获到就立即处理 所以从出现1，2 -->
+        <div class="box" @click.capture="showMsg(1)">
+            div1
+            <div class="box" @click="showMsg(2)">
+                div2
+            </div>
+        </div>
+
+        <!-- 5.self:     只有event.target是当前操作的元素才触发事件 -->
+        <div class="demo1" @click.self="showInfo">
+            <button @click="showInfo">阻止事件冒泡</button>
+        </div>
+
+
+        <!-- 6.passive:  事件的默认行为立即执行，无需等待事件回调执行完毕 -->
+        <!-- scroll是给 页面滚动条 加的滚动事件 -->
+        <!-- wheel是 鼠标滚轮 的滚动事件 -->
+        <ul @wheel.passive="demo" class="list">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+    
+    <script>
+        Vue.config.productionTip = false
+
+        var vm = new Vue({
+            el: '#root',
+            data:{
+                content:'hello world'
+            },
+            methods:{
+                showInfo(e){
+                    alert('a')
+                },
+                showMsg(msg){
+                    console.log(msg)
+                },
+                demo(event){
+                    console.log(1)
+                    for(let i=0;i<100000;i++){
+                        console.log(2)
+                    }
+                    console.log('done')
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义指令</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h3 v-text="val"></h3>
+        <h3 v-big="val">放大10倍后的</h3>
+        <h3 v-big-number="val">放大10倍后的</h3>
+        <!-- 绑定元素 获取焦点 -->
+        <input type="text" v-fbind:value="val">
+    </div>
+
+    <script>
+        Vue.config.productionTip = false;
+
+        //全局指令
+        Vue.directive('fbind',{
+            //指令与元素成功绑定时
+            bind(element,binding){
+                element.value = binding.value
+            },
+            //指令所在元素被插入页面时
+            inserted(element,binding){
+                element.focus()
+            },
+            //指令所在的模板被重新解析时
+            update(element,binding){
+                element.value = binding.value
+            }
+        })
+
+        var vm = new Vue({
+            el:'#root',  
+            data:{
+                name:'jrient1',
+                val:2,
+            },
+            //自定义指令
+            directives:{
+                big(element,binding){
+                    //将数值放大10倍
+                    element.innerText = binding.value * 10
+                },
+                'big-number':function(element,binding){
+                    element.innerText = binding.value * 10
+                },
+                // fbind:{
+                //     //指令与元素成功绑定时
+                //     bind(element,binding){
+                //         element.value = binding.value
+                //     },
+                //     //指令所在元素被插入页面时
+                //     inserted(element,binding){
+                //         element.focus()
+                //     },
+                //     //指令所在的模板被重新解析时
+                //     update(element,binding){
+                //         element.value = binding.value
+                //     }
+                // }
+            }
+        })
+    </script>
+</body>
+</html>

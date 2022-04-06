@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        x: <input type="text" v-model="x">
+        y: <input type="text" v-model="y">
+        area: <span>{{area}}</span>
+    </div>
+
+    <script>
+        Vue.config.productionTip = false;
+
+        var vm = new Vue({
+            el:'#root',  
+            data:{
+                x:'10',
+                y:'20'
+            },
+            // 计算属性get触发条件
+            // 1.初次调用时，2.所依赖计算的数据发生变化
+            // 对比methods,computed 会对数据产生缓存，页面多次调用area,get只会执行一次
+            computed:{
+            //全写
+            //     area:{
+            //         get(){
+            //             return this.x+'-'+this.y
+            //         },
+            //         //当area被修改时，才会被调用
+            //         set(){
+
+            //         }
+            //     }
+                //简写 只有不存在set可以使用
+                area(){
+                    var area = ''
+                    // area = this.x+'-'+this.y 
+                    setTimeout(()=>{
+                        area = this.x+'-'+this.y
+                        console.log(area)
+                    }, 1000)
+                    return area
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h1>hello, {{name}}</h1>
+        <!-- <a v-bind:href="url">链接</a> -->
+        <a :href="url">链接</a>
+        <!-- <input type="text" v-model:value="name"> -->
+        <input type="text" v-model="name">
+    </div>
+
+    <script>
+        Vue.config.productionTip = false;
+
+        var vm = new Vue({
+            el:'#root',  //el用于指定当前Vue实例为哪个容器服务，值通常为css选择器字符串
+            // 对象式写法
+            data:{//data中用于存储数据，数据共el所指定的容器去使用，值暂时先写成一个对象
+                name:'jrient1',
+                url:'//www.baidu.com'
+            }
+            // 函数式写法
+            // data:function(){
+            //简写
+            // data(){
+            //     return {
+            //         name:'jrient1',
+            //         url: '//www.baidu.com'
+            //     }
+            // }
+        })
+
+        vm.$mount('#root')
+
+
+        // axios({
+        //     url:'http://baidu.com'
+        // })
+    </script>
+</body>
+</html>

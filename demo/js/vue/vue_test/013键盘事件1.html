@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h2>hello, {{name}}</h2>
+        <!-- keydown 按下
+        keyup   按下再弹起 -->
+        <!-- .enter 代替代码判断 if(e.keyCode !== 13) return -->
+        <!-- vue常用按键别名:
+            回车: enter
+            删除: delete (捕获 delete 和 backspace)
+            退出: esc
+            空格: space
+            换行: tab
+            上:   up
+            下:   down
+            左:   left
+            右:   right
+            其他通过e.key查看别名
+            也可以使用键码(如@keyup.13)，但是不建议
+
+        vue未提供别名的按键，可以用按键原始的key值去绑定，但是注意转换kebab-case(短横线命名)
+
+        tab键在keyup的时候就会将焦点切走，所以只有在keydown的时候可以进行捕获
+        系统修饰键和tab一样比较特殊:ctrl alt shift meta
+        配合keyup使用，按下系统修饰键在按下其他键再释放组成组合键才会触发
+        配合keydown使用，直接可以触发 -->
+
+        <input type="text" placeholder="按下回车提示输入" @keyup.enter="showInfo">
+    </div>
+
+    <script>
+        Vue.config.productionTip = false;
+        Vue.config.keyCodes.huiche = 13;
+
+        var vm = new Vue({
+            el:'#root',  
+            data:{
+                name:'jrient1'
+            },
+            methods:{
+                showInfo(e){
+                    // if(e.keyCode !== 13) return
+                    console.log(e.keyCode,e.key)
+                    console.log(e.target.value)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

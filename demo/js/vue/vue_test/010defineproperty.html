@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../js/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let person = {
+            name: 'a',
+            sex: 'nan'
+        }
+        let age = 19;
+
+        //这样添加的属性 不参与遍历
+        Object.defineProperty(person, 'age', {
+            // value: 18,
+            enumerable:true, //申明属性是否可以枚举，默认是false
+            // writable: true,   //申明属性可以被修改 默认是false
+            // configurable: true, //申明属性可以被删除  默认是false
+            //当读取age属性时，get机会呗调用，返回age值
+            get(){
+                return age;
+            },
+            set(value){
+                age=value;
+            }
+        });
+
+        // for (let key in person) {
+        //     console.log(key)
+        // }
+    </script>
+
+    <script>
+        let obj1 = {x:100}
+        let obj2 = {y:200}
+
+        Object.defineProperty(obj2, 'x', {
+            get(){
+                return obj1.x
+            },
+            set(value){
+                obj1.x = value
+            }
+        })
+    </script>
+</body>
+</html>

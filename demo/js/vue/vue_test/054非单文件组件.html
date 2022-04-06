@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <ext1></ext1>
+        <hr>
+        <ext2></ext2>
+    </div>
+
+    <script>
+        Vue.config.productionTip = false;
+        //创建组件1
+        const extend1 = Vue.extend({
+            // 组件不能写el配置项
+            data(){
+                return {
+                    name: 'jrient',
+                    address: 'addr',
+                } 
+            },
+            template:`
+            <h2>hello, {{name}}</h2>
+            <h2>hello, {{address}}</h2>
+            `
+        })
+        //创建组件2
+        const extend2 = Vue.extend({
+            // 组件不能写el配置项
+            data(){
+                return {
+                    name2: 'jrient2',
+                    address2: 'addr2',
+                } 
+            },
+            template:`
+            <h2>hello, {{name2}}</h2>
+            <h2>hello, {{address2}}</h2>
+            `
+        })
+
+        var vm = new Vue({
+            el:'#root',  
+            components:{
+                ext1:extend1,
+                ext2:extend2
+            }
+        })
+    </script>
+</body>
+</html>

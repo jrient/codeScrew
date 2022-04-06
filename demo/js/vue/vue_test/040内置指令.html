@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+
+        <h2 v-cloak>hello, {{name}}</h2>
+        <h3 v-once>{{name}}不响应变化</h3>
+        <h3 v-pre>{{name}}不被解析</h3>
+        <div v-text="name">被替换</div>
+        <div v-text="str">不解析html</div>
+    </div>
+
+    <script>
+        Vue.config.productionTip = false;
+
+        var vm = new Vue({
+            el:'#root',  
+            data:{
+                name:'jrient1',
+                str:'<h3>xx</h3>'
+            }
+        })
+    </script>
+</body>
+</html>

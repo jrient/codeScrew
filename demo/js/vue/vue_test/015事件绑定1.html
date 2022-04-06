@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h2>{{content}}</h2>
+        <!-- <button v-on:click="showInfo">click me</button> -->
+        <button @click="showInfo">click me1</button>
+        <!-- $event 属于关键词，用来占位 -->
+        <button @click="showInfo2($event,123)">click me2</button>
+    </div>
+    
+    <script>
+        Vue.config.productionTip = false
+
+        var vm = new Vue({
+            el: '#root',
+            data:{
+                content:'hello world'
+            },
+            methods:{
+                //被vue管理的函数最好不要写成箭头函数，箭头函数的this是window
+                showInfo(event){
+                    //event 是事件对象
+                    //this 是vm 
+                    alert('hello')
+                },
+                showInfo2(event,num){
+                    //event 是事件对象
+                    //this 是vm 
+                    console.log(event,num)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

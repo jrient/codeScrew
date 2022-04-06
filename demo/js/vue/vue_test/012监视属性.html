@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h2>hello, {{name}}</h2>
+        <input type="text" v-model="name">
+    </div>
+
+    <script>
+        Vue.config.productionTip = false;
+
+        var vm = new Vue({
+            el:'#root',  
+            data:{
+                name:'jrient1',
+                dee:{
+                    a:1,
+                    b:2
+                },
+                short:'简写'
+            },
+            //可以监测data和computed
+            watch:{
+                name:{
+                    immediate:true,//初始化的时候调用一次
+                    handler(newValue, oldValue){
+                        console.log(newValue, oldValue)
+                    }
+                },
+                'dee.a': {
+                    handler(newValue, oldValue){
+                        console.log('dee下的a发生了改变')
+                    }
+                },
+                dee:{
+                    deep:true, //深度监视，监视多层级数据改变 
+                    handler(newValue, oldValue){
+                        console.log('changed')
+                    }
+                },
+                //简写
+                short(newValue, oldValue){
+                    //只能用于不使用配置项的时候使用
+                    console.log('监视short的简写形式')
+                }
+            }
+        })
+
+        //等同于上面的写法
+        vm.$watch('name',{
+            immediate:true,//初始化的时候调用一次
+            handler(newValue, oldValue){
+                console.log(newValue, oldValue)
+            }
+        })
+        //简写
+        vm.$watch('short',function(newValue, oldValue){
+            console.log(newValue, oldValue)
+        })
+    </script>
+</body>
+</html>

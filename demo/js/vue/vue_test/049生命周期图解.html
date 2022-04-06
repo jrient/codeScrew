@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h2>hello, {{name}}</h2>
+    </div>
+    <img src="https://cn.vuejs.org/images/lifecycle.png">
+
+    <script>
+        Vue.config.productionTip = false;
+
+        var vm = new Vue({
+            el:'#root',  
+            data:{
+                name:'jrient1'
+            },
+            beforeCreate() {
+                console.log('beforeCreate')
+                // console.log(this)
+                console.log('此时，无法通过vm访问到data中的数据、methods中的方法')
+                debugger
+            },
+            created(){
+                console.log('created')
+                // console.log(this)
+                console.log('此时，可以通过vm访问到data中的数据、methods中的方法')
+                debugger
+            },
+            beforeMount(){
+                console.log('beforeMount')
+                // console.log(this)
+                console.log('此时，页面呈现的时未经Vue编译的DOM,所有对DOM的操作都不生效')
+                debugger
+            },
+            mounted(){
+                console.log('mounted')
+                // console.log(this) 
+                console.log('此时，页面上呈现的是经过编译的DOM，对DOM的操作均有效。')
+                console.log('至此初始化过程结束，一般在此进行：开启定时器、发送网络请求、订阅消息、绑定自定义事件、等初始化操作')
+                debugger
+            },
+            beforeUpdate(){
+                console.log('beforeUpdate')
+                // console.log(this) 
+                console.log('此时，数据是新的，但是页面是旧的，即：页面尚未和数据保持同步')
+                debugger
+            },
+            updated(){
+                console.log('updated')
+                console.log('此时，数据时新的，页面也是新的，即：页面和数据保持同步')
+                debugger
+            },
+            beforeDestroy(){
+                console.log('beforeDestroy')
+                console.log('此时，vm中所有的:data/methods/指令等等，都处于可用状态，马上要执行销毁过程')
+                console.log('一般在此阶段：关闭定时器、取消订阅消息、解绑自定义事件等收尾操作')
+            },
+            destroyed() {
+                console.log('destroyed')
+            },
+        })
+    </script>
+</body>
+</html>

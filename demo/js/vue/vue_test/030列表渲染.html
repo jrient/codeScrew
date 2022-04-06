@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h2></h2>
+        <button @click.once='add'>点击添加</button>
+        <ul>
+            <!-- 所有元素身上的key属性都被vue占用了 -->
+            <li v-for="(item,key) in persons" :key="item.id">
+                {{item.name}} - {{item.age}}
+            </li>
+        </ul>
+
+        <h2>遍历数组/对象/字符串</h2>
+        <ul>
+            <li v-for="(item,index) in persons" :key="item.id">
+                {{item.name}} - {{item.age}}
+            </li>
+        </ul>
+
+        <h2>遍历指定次数</h2>
+        <ul>
+            <!-- <li v-for="p in persons"> -->
+            <li v-for="(item,index) in 5" :key="item.id">
+                {{item}} - {{index}}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        Vue.config.productionTip = false;
+
+        var vm = new Vue({
+            el:'#root',  
+            data:{
+                persons:[
+                    {id:1,name:'one',age:1},
+                    {id:2,name:'two',age:2},
+                    {id:3,name:'three',age:3},
+                ]
+            }
+        })
+    </script>
+</body>
+</html>
